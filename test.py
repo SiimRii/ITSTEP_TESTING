@@ -37,7 +37,25 @@ class CalculatorTest(unittest.TestCase):
     def test_korene_kvadratickej(self):
         calculator = Calculator()
         vysledok = calculator.korene_kvadratickej(1, 4, 3)
-        self.assertEqual(vysledok, (-1, -3))
+        self.assertEqual(vysledok[0], -1)
+        self.assertEqual(vysledok[1], -3)
+
+    def test_korene_kvadratickej_bez_riesenia(self):
+        calculator = Calculator()
+        vysledok = calculator.korene_kvadratickej(1, 0, 3)
+        ####self.assertEqual(vysledok, None)
+        self.assertIsNone()
+
+    def test_korene_kvadratickej_s_jednym_riesenim(self):
+        calculator = Calculator()
+        vysledok = calculator.korene_kvadratickej(1, -4, 4)
+        self.assertEqual(vysledok, 2)
+
+    def test_korene_kvadratickej_s_linearnym_riesenim(self):
+        calculator = Calculator()
+        vysledok = calculator.korene_kvadratickej(0, 4, 4)
+        self.assertEqual(vysledok, -1)
+        
 
 
         

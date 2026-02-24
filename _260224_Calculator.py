@@ -8,18 +8,30 @@ class Calculator:
     def sucet(self, a, b):
         return a + b
 
+
     def sucin(self, a, b):
         return a * b
+
 
     def delenie(self, a, b):
         return a / b
 
+
     def odvesna(self, c, b):
         return math.sqrt(c**2 - b**2)
 
+
     def korene_kvadratickej(self, a, b, c):
-        determinant = math.sqrt(b**2 - 4*a*c)
-        return [(-b - determinant)/(2*a), (-b + determinant)/(2*a)]
+        if a == 0:
+            raise ValueError("Rovnica nie je kvadraticka.")
+
+        determinant = b**2 - 4*a*c
+        if determinant < 0:
+            return None
+        elif determinant == 0:
+            return -b/(2*a)
+        else:
+            return [(-b - math.sqrt(determinant))/(2*a), (-b + math.sqrt(determinant))/(2*a)]
 
 
 #---------------------------
